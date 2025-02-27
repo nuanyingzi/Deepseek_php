@@ -15,6 +15,17 @@ class Chat extends BaseController
 
     public function chat()
     {
+
+        // 设置CORS头信息
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+        // 处理OPTIONS预检请求
+        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+            exit;
+        }
+
         // 参数验证
         $validate = Validate::rule([
             'content|内容' => 'require|max:2000'
