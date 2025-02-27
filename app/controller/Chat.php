@@ -29,7 +29,7 @@ class Chat extends BaseController
         }
         $text = Request::post('content');
 
-        $deepseekApiKey = env('LANG_DEEPSEEK_API_KEY');
+        $deepseekApiKey = env('DEEPSEEK_API_KEY');
 
         try {
             $client = new Client([
